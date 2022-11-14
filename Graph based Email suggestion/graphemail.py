@@ -76,17 +76,17 @@ class Graph:
     while queue:
 
       # Dequeue a vertex from queue and print it
-      s = queue.pop(0)
-      if s == d:
+      s2 = queue.pop(0)
+      if s2 == d:
         pathexist = True
 
       # Get all adjacent vertices of the dequeued vertex s. If a adjacent has not been visited, then mark it visited and enqueue it
-      nd = self.graph[s]
+      nd = self.graph[s2]
       while nd:
         if visited[nd.vertex] == False:
           queue.append(nd.vertex)
           visited[nd.vertex] = True
-          distance[nd.vertex] = distance[s] + 1
+          distance[nd.vertex] = distance[s2] + 1
         nd = nd.next
         
     return [pathexist, distance[d]]
@@ -124,8 +124,9 @@ class Graph:
     self.printAllPathsUtil(s, d, visited, path)
 
 if __name__ == "__main__":
-  #TESTING WITHOUT FILE
+
   
+    
   V = 5
   # Create graph and edges
   graph = Graph(V)
@@ -133,15 +134,16 @@ if __name__ == "__main__":
   graph.add_edge(0, 2)
   graph.add_edge(0, 3)
   graph.add_edge(1, 2)
-  graph.add_edge(2, 0)
   graph.add_edge(2, 3)
   graph.add_edge(3, 3)
   graph.add_edge(4, 3)
-
   '''
 
-  filelink = open("Email-EuAll.txt","r")
-  V = len(filelink.readlines())
+  #TESTING WITHOUT FILE
+
+  filelink = open("D:\Btech\SEM5\Design and Analysis of Algorithms\Project\Data-Structures-and-Algorithms\Graph based Email suggestion\Email-EuAll.txt","r")
+  #V = len(filelink.readlines())
+  V = 420045
   graph = Graph(V)
   file_line = filelink.readline()
   # use the readline() method to read further.
@@ -150,15 +152,14 @@ if __name__ == "__main__":
     #str.split() method is used split the string into a list of strings.
     #map() function is used to convert each string into an integer.
     #list() class is used to convert the map object to a list.
-    numlist = list(map(int, file_line))
+    numlist = [int(ele) for ele in file_line.split('\t')]
     graph.add_edge(numlist[0],numlist[1])
-    print(file_line)
-    # use realine() to read next line
+    #print(numlist)
+    #use realine() to read next line
     file_line = filelink.readline()
   filelink.close()
-
-'''
-
+  '''
+  
   op = 0
   while op != 5:
     print('\n', '─' * 50)
