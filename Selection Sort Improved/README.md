@@ -10,20 +10,20 @@ Selection sort is the simplest sorting algorithm that sorts an array by repeated
 ## Algorithm:
 Slightly improved version of Selection sort, sorting the array in both sides by finding min, max in every iteration hence making no of outer iterations reduce by half.
 
-selection(arr[], n)
-    i <- 0
-    j <- n - 1
-    while(i < j):
-        min <- arr[i]
-        max <- arr[i]
-        min_i, max_i <- i
-        for k <- i to j + 1 :
-            if (arr[k] > max):
-                max <- arr[k]
-                max_i <- k
-            elif (arr[k] < min):
-                min <- arr[k]
-                min_i <- k
+    selection(arr[], n)
+        i <- 0
+        j <- n - 1
+        while(i < j):
+            min <- arr[i]
+            max <- arr[i]
+            min_i, max_i <- i
+            for k <- i to j + 1 :
+                if (arr[k] > max):
+                    max <- arr[k]
+                    max_i <- k
+                elif (arr[k] < min):
+                    min <- arr[k]
+                    min_i <- k
         
         # shifting the min.
         swap (arr[i], arr[min_i])
@@ -37,7 +37,7 @@ selection(arr[], n)
         i += 1
         j -= 1
         
- ##Correctness
+ ## Correctness
  Loop Invariant:
   A[0..i] and A[j..n-1] are in sorted order respectively and A[0..i-1] U A[j+1..n-1] together is sorted
   * Initialisation : - At begining, i = 0 and j = n-1, each array has only 1 element and hence, each subarray is sorted and A[0..i-1] U A[j+1..n-1] is empty
