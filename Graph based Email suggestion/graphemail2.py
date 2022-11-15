@@ -123,9 +123,20 @@ class Graph:
     # Call the recursive helper function to print all paths
     self.printAllPathsUtil(s, d, visited, path)
 
+  def visualise(self):
+    import networkx as nx
+    import matplotlib.pyplot as plt
+    g = nx.Graph()
+    for i in range(self.V):
+      temp = self.graph[i]
+      while temp:
+        g.add_edge(i, temp.vertex)
+        temp = temp.next    
+    nx.draw(g, with_labels = True)
+    plt.savefig("D:/Btech/SEM5/Design and Analysis of Algorithms/Project/Data-Structures-and-Algorithms/Graph based Email suggestion/imagegraph.png")
+
 if __name__ == "__main__":
 
-  
   V = 5
   # Create graph and edges
   graph = Graph(V)
@@ -136,6 +147,7 @@ if __name__ == "__main__":
   graph.add_edge(2, 3)
   graph.add_edge(3, 3)
   graph.add_edge(4, 3)
+
 
   '''
   #TESTING WITHOUT FILE
@@ -155,24 +167,21 @@ if __name__ == "__main__":
     #use realine() to read next line
     file_line = filelink.readline()
   filelink.close()
-  
-  '''
 
   '''
-  #TESTING WITH 500 RECORDS
-
+  '''
   import pandas as pd
   df = pd.read_csv("D:\Btech\SEM5\Design and Analysis of Algorithms\Project\Data-Structures-and-Algorithms\Graph based Email suggestion\Email500.csv")
   V = 500
   graph = Graph(V)
   for i in range(len(df)):
     graph.add_edge(df['src'][i], df['dst'][i])
-
   '''
+
   op = 0
-  while op != 5:
+  while op != 6:
     print('\n', '─' * 50)
-    op = int(input("1. Print Graph \n2. Find Suggestions \n3. Distance between two Nodes(if exists) \n4. All Path between Nodes \n5. Exit \nEnter(1-5): "))
+    op = int(input("1. Print Graph \n2. Find Suggestions \n3. Distance between two Nodes(if exists) \n4. All Path between Nodes \n5. Visualise \n6. Exit \nEnter(1-6): "))
     if(op == 1):
       print("Graph Adjacency List:")
       graph.print_agraph()
@@ -204,6 +213,8 @@ if __name__ == "__main__":
         ind = int(input("Error! Again Enter Destination (Node Number (0-V)):"))
       print("Set of all paths between 2 nodes are: ")
       graph.printAllPaths(ins, ind)
+    elif(op == 5):
+      graph.visualise()
     else:
       print("Exit")
       break

@@ -31,6 +31,7 @@ def SelectionSortimproved(arr, n):
 
         i += 1
         j -= 1
+        #print(arr)
 
     print("Sorted array:", end = " ")
     for i in range(n):
