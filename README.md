@@ -97,6 +97,11 @@
   - AVL Trees: Balance factor, rotating subtrees (Right, Left, Left-Right, Right-Left rotations).
   - Red-Black trees
   - B Trees & B+ Trees (Indexing in databases, K-way tree insertion and deletion). Disk-Based Trees
+- Advanced
+  - Advanced Range Query: Segment Trees & Fenwick Tree (Binary Indexed Tree)
+  - Specialized: K-D Trees, Splay Trees, K-Ary Trees & Priority Search Trees
+  - Fusion Tree & Hashed Array Tree
+  - Lowest Common Ancestor (LCA) & Binary Lifting
 
 ## Maps
 - Map ADT, List-based Implementation.
